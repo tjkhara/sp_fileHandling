@@ -1,32 +1,32 @@
 #include <stdio.h>
+#include <string.h>
+#define SIZE 80
 
 int main()
 {
-    // File pointer
     FILE *fp;
 
-    fp = fopen("a.txt", "r");
+    fp = fopen("names.txt","r");
 
     if(fp == NULL)
     {
-        printf("Unable to open file\n");
-        return 1;
+        printf("Problem opening file.\n");
+        return 0;
     }
-    // file opened successfully
 
-    // prime read
-    char ch;
-    ch = fgetc(fp);
+    char name[SIZE];
+    int salary;
 
-    // If the first character reading is successful, then go to the loop
-    while(!feof(fp))
+    while(1)
     {
-        printf("%c", ch);
-        // Get next character
-        ch = fgetc(fp);
+        fscanf(fp, " %[^,],%d", name,  &salary);
+        printf("%s gets $%d per hour\n", name, salary);
+
+
+        if(feof(fp))
+            break;
     }
 
-    // Close the file and flush the content into the file
     fclose(fp);
 
     printf("Success\n");
