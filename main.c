@@ -5,10 +5,19 @@
 int main()
 {
     FILE *fp;
+    FILE *fpr;
 
     fp = fopen("names.txt","r");
 
     if(fp == NULL)
+    {
+        printf("Problem opening file.\n");
+        return 0;
+    }
+
+    fpr = fopen("reports.txt","w");
+
+    if(fpr == NULL)
     {
         printf("Problem opening file.\n");
         return 0;
@@ -21,6 +30,7 @@ int main()
     {
         fscanf(fp, " %[^,],%d", name,  &salary);
         printf("%s gets $%d per hour\n", name, salary);
+        fprintf(fpr, "%s gets $%d per hour\n", name, salary);
 
 
         if(feof(fp))
