@@ -1,50 +1,23 @@
 #include <stdio.h>
-#include <string.h>
-#define SIZE 80
+
 
 int main()
 {
     FILE *fp;
-    FILE *fpr;
+    double data[] = {10.25,5.54,8.96,12.45,100.01};
 
-    fp = fopen("names.txt","r");
-
+    fp = fopen("data.bin", "wb");
     if(fp == NULL)
     {
-        printf("Problem opening file.\n");
+        printf("Unable to open file\n");
         return 0;
     }
 
-    fpr = fopen("reports.txt","w");
-
-    if(fpr == NULL)
-    {
-        printf("Problem opening file.\n");
-        return 0;
-    }
-
-    char name[SIZE];
-    int salary;
-    double pertHRA;
-    double houseRent;
-    double netSalary;
-
-    while(1)
-    {
-        fscanf(fp, " %[^,],%d,%lf", name,  &salary, &pertHRA);
-//        printf("%s gets $%d per hour\n", name, salary);
-        houseRent = salary * pertHRA;
-        netSalary = salary - houseRent;
-        fprintf(fpr, "%-30s %10d %4.2lf %6.2lf %10.2lf \n", name, salary, pertHRA, houseRent, netSalary);
-
-
-        if(feof(fp))
-            break;
-    }
+    // Writing binary data to a file
+    int nObject = fwrite((void *)data, sizeof(double), 5, fp);
+    printf("Total elements written: %d\n", nObject);
 
     fclose(fp);
-
-    printf("Success\n");
 
     return 0;
 }
