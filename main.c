@@ -5,7 +5,7 @@ int main()
     // File pointer
     FILE *fp;
 
-    fp = fopen("a.txt", "a");
+    fp = fopen("a.txt", "r");
 
     if(fp == NULL)
     {
@@ -14,11 +14,16 @@ int main()
     }
     // file opened successfully
 
+    // prime read
     char ch;
+    ch = fgetc(fp);
 
-    for(ch = 'a'; ch <= 'z'; ch++)
+    // If the first character reading is successful, then go to the loop
+    while(!feof(fp))
     {
-        fputc(ch, fp);
+        printf("%c", ch);
+        // Get next character
+        ch = fgetc(fp);
     }
 
     // Close the file and flush the content into the file
