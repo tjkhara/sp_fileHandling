@@ -1,3 +1,4 @@
-Tajeshwar Khara,5000
-Rupa Khara,7000
-Rajeshwar Khara,10000
+Tajeshwar Khara,5000,0.1
+Rupa Khara,7000,0.05
+Rajeshwar Khara,10000,0.07
+Bhakti Khara,7000,0.02

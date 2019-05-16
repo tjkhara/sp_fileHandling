@@ -25,12 +25,17 @@ int main()
 
     char name[SIZE];
     int salary;
+    double pertHRA;
+    double houseRent;
+    double netSalary;
 
     while(1)
     {
-        fscanf(fp, " %[^,],%d", name,  &salary);
-        printf("%s gets $%d per hour\n", name, salary);
-        fprintf(fpr, "%s gets $%d per hour\n", name, salary);
+        fscanf(fp, " %[^,],%d,%lf", name,  &salary, &pertHRA);
+//        printf("%s gets $%d per hour\n", name, salary);
+        houseRent = salary * pertHRA;
+        netSalary = salary - houseRent;
+        fprintf(fpr, "%-30s %10d %4.2lf %6.2lf %10.2lf \n", name, salary, pertHRA, houseRent, netSalary);
 
 
         if(feof(fp))

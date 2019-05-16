@@ -1,3 +1,4 @@
-Tajeshwar Khara gets $5000 per hour
-Rupa Khara gets $7000 per hour
-Rajeshwar Khara gets $10000 per hour
+Tajeshwar Khara                      5000 0.10 500.00    4500.00 
+Rupa Khara                           7000 0.05 350.00    6650.00 
+Rajeshwar Khara                     10000 0.07 700.00    9300.00 
+Bhakti Khara                         7000 0.02 140.00    6860.00 
